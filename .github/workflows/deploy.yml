@@ -20,4 +20,4 @@ jobs:
         REMOTE_USER: a23elivalyen
         REMOTE_PORT: 22
         SOURCE: doc/
-        TARGET: web/a23elivalyen.daw.inspedralbes.cat/public_html/actions
+        TARGET: a23elivalyen.daw.inspedralbes.cat/public_html/actions
