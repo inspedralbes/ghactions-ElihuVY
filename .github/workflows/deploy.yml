@@ -21,3 +21,4 @@ jobs:
           REMOTE_PORT: 22
           SOURCE: doc/
           TARGET: a23elivalyen.daw.inspedralbes.cat/public_html/actions
+          ARGS: --rsync-path="mkdir -p a23elivalyen.daw.inspedralbes.cat/public_html/actions && rsync"
