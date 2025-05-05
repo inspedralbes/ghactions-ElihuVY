@@ -15,8 +15,9 @@ jobs:
       - name: Subir carpeta `doc/` al servidor
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-user: a23elivalyen
-          server-ip: a23elivalyen.daw.inspedralbes.cat
-          remote-path: web/a23elivalyen.daw.inspedralbes.cat/public_html/actions
-          local-path: doc
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: a23elivalyen.daw.inspedralbes.cat
+        REMOTE_USER: a23elivalyen
+        REMOTE_PORT: 22
+        SOURCE: doc/
+        TARGET: web/a23elivalyen.daw.inspedralbes.cat/public_html/actions
