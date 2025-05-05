@@ -1,0 +1,22 @@
+name: Deploy doc folder to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Subir carpeta `doc/` al servidor
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote-user: a23elivalyen
+          server-ip: a23elivalyen.daw.inspedralbes.cat
+          remote-path: web/a23elivalyen.daw.inspedralbes.cat/public_html/actions
+          local-path: doc
