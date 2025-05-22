@@ -1,4 +1,4 @@
-name: Deploy doc folder to Production
+name: Deploy Vue app to Production
 
 on:
   push:
@@ -9,7 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout del código
         uses: actions/checkout@v3
 
@@ -18,14 +17,14 @@ jobs:
 
       - name: Construir el proyecto Vue
         run: npm run build
-        
-      - name: Subir carpeta `doc/` al servidor
+
+      - name: Subir carpeta dist/ al servidor
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: a23elivalyen.daw.inspedralbes.cat
           REMOTE_USER: a23elivalyen
           REMOTE_PORT: 22
-          SOURCE: doc/
-          TARGET: a23elivalyen.daw.inspedralbes.cat/public_html/actions
-          ARGS: --rsync-path="mkdir -p a23elivalyen.daw.inspedralbes.cat/public_html/actions && rsync"
+          SOURCE: dist/
+          TARGET: /home/a23elivalyen/web/a23elivalyen.daw.inspedralbes.cat/public_html/vue
+          ARGS: --delete
